@@ -7,24 +7,33 @@
 
 import UIKit
 
-class ContactCell: UICollectionViewCell {
+class ContactCell: UITableViewCell {
     
     private let fullName = UILabel()
-    private var image = UIImageView() {
+    private var contactImage = UIImageView() {
         didSet {
-            image.layer.cornerRadius = image.frame.size.width / 2
+            contactImage.layer.cornerRadius = contactImage.frame.size.width / 2
+            contactImage.image = UIImage(named: "defaultImage")
         }
     }
     
     override func awakeFromNib() {
             super.awakeFromNib()
-        setupSubview(image, fullName)
+        setupSubview(contactImage, fullName)
         setupContentView()
         setConstraints()
         }
     
     func configure(with contact: Contact) {
-        fullName.text = contact.results.
+        fullName.text = contact.fullName
+        NetworkManager.shared.fetchImage(from: contact.picture.medium) { result in
+            switch result {
+            case .success(let imageData):
+                self.contactImage.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -37,19 +46,18 @@ extension ContactCell {
            }
     }
         
-        
     private func setupContentView() {
         contentView.backgroundColor  = .white
-        image.translatesAutoresizingMaskIntoConstraints = false
+        contactImage.translatesAutoresizingMaskIntoConstraints = false
         fullName.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10)
+            contactImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            contactImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            contactImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            contactImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10)
         ])
         
         NSLayoutConstraint.activate([

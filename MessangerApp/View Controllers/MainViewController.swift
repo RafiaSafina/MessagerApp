@@ -7,15 +7,18 @@
 
 import UIKit
 
-class MainViewController: UICollectionViewController {
+class MainViewController: UITableViewController, UIApplicationDelegate {
 
-    private var contact: [Results] = []
+    
+    private var contacts: Information?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        tableView.rowHeight = 50
+        tableView.backgroundColor = .white
+
         setupNavigationBar()
-        fetchContacts()
+        fetchContacts(with: Links.url.rawValue)
         }
 }
 
@@ -37,30 +40,31 @@ extension MainViewController {
     }
 }
 
-  MARK: - CollectionView Delegate
+//  MARK: - CollectionView DataSource
 extension MainViewController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        contacts.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        contacts?.results.count ?? 0
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "contact", for: indexPath)
-        guard let contactCell = cell as? ContactCell else { return UICollectionViewCell() }
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
+        guard let cell = cell as? ContactCell else { return UITableViewCell() }
         
+        guard let content = contacts?.results[indexPath.row] else { return UITableViewCell() }
+        cell.configure(with: content)
         
+        return cell
     }
-
 }
 
 // MARK: - Private Methods
 extension MainViewController {
-    private func fetchContacts() {
-        NetworkManager.shared.fetchData(from: Links.url.rawValue) { result in
+    private func fetchContacts(with url: String) {
+        NetworkManager.shared.fetchData(from: url) { [weak self] result in
             switch result {
-            case .success(let contact):
-                self.contact = contact
-                self.collectionView.reloadData()
+            case .success(let contacts):
+                self?.contacts = contacts
+                self?.tableView.reloadData()
                 print(contacts)
             case .failure(let error):
                 print(error.localizedDescription)

@@ -5,11 +5,11 @@
 //  Created by Рафия Сафина on 12.12.2022.
 //
 
-struct Contact: Decodable {
-    let results: [Results]
+struct Information: Decodable {
+    let results: [Contact]
 }
 
-struct Results: Decodable {
+struct Contact: Decodable {
     let gender: String
     let name: Name
     let location: Location
@@ -95,5 +95,5 @@ struct Picture: Decodable {
 //}
 
 enum Links: String {
-    case url = "https://randomuser.me/api/?format=json/?inc=gender,name,nat?results=10?key=Q7P3-LYXG-5YP8-8RJK&ref=vgkxgycz"
+    case url = "https://randomuser.me/api/?format=json/?inc=gender,name,nat?results=20?key=Q7P3-LYXG-5YP8-8RJK&ref=vgkxgycz"
 }

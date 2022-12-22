@@ -13,8 +13,6 @@ enum NetworkError: Error {
     case decodingError
 }
 
-
-
 let apiKey = "Q7P3-LYXG-5YP8-8RJK"
 
 class NetworkManager {
@@ -39,7 +37,7 @@ class NetworkManager {
         }
     }
     
-    func fetchData(from url: String, completion: @escaping (Result<Contact, NetworkError>) -> Void) {
+    func fetchData(from url: String, completion: @escaping (Result<Information, NetworkError>) -> Void) {
         
         guard let url = URL(string: url) else {
             completion(.failure(.invalidUrl))
@@ -53,7 +51,7 @@ class NetworkManager {
             }
             
             do {
-                let contacts = try JSONDecoder().decode(Contact.self, from: data)
+                let contacts = try JSONDecoder().decode(Information.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(contacts))
                 }
