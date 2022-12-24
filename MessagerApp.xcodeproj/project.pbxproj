@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6C5222BF2953B2C300C4251E /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222BE2953B2C300C4251E /* ContactCell.swift */; };
+		6C5222C12956682500C4251E /* Constants + Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C02956682400C4251E /* Constants + Links.swift */; };
+		6C5222C629566B9900C4251E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C529566B9900C4251E /* ChatViewController.swift */; };
+		6C5222C829566D9700C4251E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C729566D9700C4251E /* MessageCell.swift */; };
 		6C738ADA2947944D00BF16C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C738AD92947944D00BF16C2 /* AppDelegate.swift */; };
 		6C738ADE2947944D00BF16C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C738ADD2947944D00BF16C2 /* LoginViewController.swift */; };
 		6C738AE32947945600BF16C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C738AE22947945600BF16C2 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		6C5222BE2953B2C300C4251E /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		6C5222C02956682400C4251E /* Constants + Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants + Links.swift"; sourceTree = "<group>"; };
+		6C5222C529566B9900C4251E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		6C5222C729566D9700C4251E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		6C738AD62947944D00BF16C2 /* MessagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C738AD92947944D00BF16C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C738ADD2947944D00BF16C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C5222C429566B2800C4251E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C5222BE2953B2C300C4251E /* ContactCell.swift */,
+				6C5222C729566D9700C4251E /* MessageCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6C738ACD2947944D00BF16C2 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +75,7 @@
 			children = (
 				6C738B052951F45B00BF16C2 /* App */,
 				6C738B042951F42900BF16C2 /* View Controllers */,
+				6C5222C429566B2800C4251E /* Views */,
 				6C738B062951F46600BF16C2 /* Models */,
 				6C738AE22947945600BF16C2 /* Assets.xcassets */,
 				6C738AE72947945600BF16C2 /* Info.plist */,
@@ -71,9 +87,9 @@
 		6C738B042951F42900BF16C2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6C738AED29479BA800BF16C2 /* MainViewController.swift */,
 				6C738ADD2947944D00BF16C2 /* LoginViewController.swift */,
-				6C5222BE2953B2C300C4251E /* ContactCell.swift */,
+				6C738AED29479BA800BF16C2 /* MainViewController.swift */,
+				6C5222C529566B9900C4251E /* ChatViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -90,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				6C738AEF2947B32700BF16C2 /* ContactsModel.swift */,
+				6C5222C02956682400C4251E /* Constants + Links.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,10 +190,13 @@
 			files = (
 				6C5222BF2953B2C300C4251E /* ContactCell.swift in Sources */,
 				6C738ADE2947944D00BF16C2 /* LoginViewController.swift in Sources */,
+				6C5222C629566B9900C4251E /* ChatViewController.swift in Sources */,
 				6C738ADA2947944D00BF16C2 /* AppDelegate.swift in Sources */,
 				6C738B082951F49000BF16C2 /* NetworkManager.swift in Sources */,
+				6C5222C12956682500C4251E /* Constants + Links.swift in Sources */,
 				6C738AEE29479BA800BF16C2 /* MainViewController.swift in Sources */,
 				6C738AF02947B32800BF16C2 /* ContactsModel.swift in Sources */,
+				6C5222C829566D9700C4251E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

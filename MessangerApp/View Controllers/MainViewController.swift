@@ -9,16 +9,16 @@ import UIKit
 
 class MainViewController: UITableViewController, UIApplicationDelegate {
 
-    
     private var contacts: Information?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 50
         tableView.backgroundColor = .white
+        tableView.rowHeight = 100
+        tableView.register(ContactCell.self, forCellReuseIdentifier: Constants.cellID.rawValue)
 
         setupNavigationBar()
-        fetchContacts(with: Links.url.rawValue)
+        fetchContacts(with: Links.url2.rawValue)
         }
 }
 
@@ -40,20 +40,28 @@ extension MainViewController {
     }
 }
 
-//  MARK: - CollectionView DataSource
+//  MARK: - TableView DataSource
 extension MainViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contacts?.results.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID.rawValue, for: indexPath)
+       
         guard let cell = cell as? ContactCell else { return UITableViewCell() }
         
         guard let content = contacts?.results[indexPath.row] else { return UITableViewCell() }
         cell.configure(with: content)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let chatVC = ChatViewController()
+        chatVC.title = "Chats"
+        navigationController?.pushViewController(chatVC, animated: true)
     }
 }
 

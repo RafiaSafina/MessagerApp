@@ -20,7 +20,7 @@ struct Contact: Decodable {
     let picture: Picture
     
     var fullName: String {
-        name.first + name.last
+        name.first + " " + name.last
     }
 }
 
@@ -54,46 +54,4 @@ struct Picture: Decodable {
     let large: String
     let medium: String
     let thumbnail: String
-}
-
-//enum ContactsInfoKeys: String, CodingKey {
-//    case gender = "gender",
-//         email = "email",
-//         phone = "phone"
-//}
-//
-//enum NameInfoKeys: String, CodingKey {
-//    case title = "title",
-//         first = "first",
-//         last = "last"
-//}
-//
-//enum LocationInfoKeys: String, CodingKey {
-//    case city = "city",
-//         state = "state",
-//         country = "country"
-//}
-//
-//enum StreetInfoKeys: String, CodingKey {
-//    case number = "number",
-//         name = "name"
-//}
-//
-//enum LoginInfoKeys: String, CodingKey {
-//    case username = "username",
-//         password = "password"
-//}
-//
-//enum RegisteredInfoKeys: String, CodingKey {
-//    case age = "age"
-//}
-//
-//enum PictureInfoKeys: String, CodingKey {
-//    case large = "large",
-//         medium = "medium",
-//         thumbnail = "thumbnail"
-//}
-
-enum Links: String {
-    case url = "https://randomuser.me/api/?format=json/?inc=gender,name,nat?results=20?key=Q7P3-LYXG-5YP8-8RJK&ref=vgkxgycz"
 }

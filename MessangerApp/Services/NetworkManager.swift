@@ -13,8 +13,6 @@ enum NetworkError: Error {
     case decodingError
 }
 
-let apiKey = "Q7P3-LYXG-5YP8-8RJK"
-
 class NetworkManager {
     
     static let shared = NetworkManager()
@@ -57,7 +55,6 @@ class NetworkManager {
                 }
             } catch {
                 completion(.failure(.decodingError))
-                print("aaaaaa")
             }
         }.resume()
     }
