@@ -10,7 +10,7 @@
 		6C5222BF2953B2C300C4251E /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222BE2953B2C300C4251E /* ContactCell.swift */; };
 		6C5222C12956682500C4251E /* Constants + Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C02956682400C4251E /* Constants + Links.swift */; };
 		6C5222C629566B9900C4251E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C529566B9900C4251E /* ChatViewController.swift */; };
-		6C5222C829566D9700C4251E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C729566D9700C4251E /* MessageCell.swift */; };
+		6C5222C829566D9700C4251E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5222C729566D9700C4251E /* ChatCell.swift */; };
 		6C738ADA2947944D00BF16C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C738AD92947944D00BF16C2 /* AppDelegate.swift */; };
 		6C738ADE2947944D00BF16C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C738ADD2947944D00BF16C2 /* LoginViewController.swift */; };
 		6C738AE32947945600BF16C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C738AE22947945600BF16C2 /* Assets.xcassets */; };
@@ -23,8 +23,8 @@
 		6C5222BE2953B2C300C4251E /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		6C5222C02956682400C4251E /* Constants + Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants + Links.swift"; sourceTree = "<group>"; };
 		6C5222C529566B9900C4251E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		6C5222C729566D9700C4251E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		6C738AD62947944D00BF16C2 /* MessagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C5222C729566D9700C4251E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		6C738AD62947944D00BF16C2 /* MessangerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessangerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C738AD92947944D00BF16C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C738ADD2947944D00BF16C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6C738AE22947945600BF16C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				6C5222BE2953B2C300C4251E /* ContactCell.swift */,
-				6C5222C729566D9700C4251E /* MessageCell.swift */,
+				6C5222C729566D9700C4251E /* ChatCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 		6C738AD72947944D00BF16C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C738AD62947944D00BF16C2 /* MessagerApp.app */,
+				6C738AD62947944D00BF16C2 /* MessangerApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C738AD52947944D00BF16C2 /* MessagerApp */ = {
+		6C738AD52947944D00BF16C2 /* MessangerApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C738AEA2947945600BF16C2 /* Build configuration list for PBXNativeTarget "MessagerApp" */;
+			buildConfigurationList = 6C738AEA2947945600BF16C2 /* Build configuration list for PBXNativeTarget "MessangerApp" */;
 			buildPhases = (
 				6C738AD22947944D00BF16C2 /* Sources */,
 				6C738AD32947944D00BF16C2 /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = MessagerApp;
+			name = MessangerApp;
 			productName = MessangerApp;
-			productReference = 6C738AD62947944D00BF16C2 /* MessagerApp.app */;
+			productReference = 6C738AD62947944D00BF16C2 /* MessangerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +154,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C738AD12947944D00BF16C2 /* Build configuration list for PBXProject "MessagerApp" */;
+			buildConfigurationList = 6C738AD12947944D00BF16C2 /* Build configuration list for PBXProject "MessangerApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C738AD52947944D00BF16C2 /* MessagerApp */,
+				6C738AD52947944D00BF16C2 /* MessangerApp */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +196,7 @@
 				6C5222C12956682500C4251E /* Constants + Links.swift in Sources */,
 				6C738AEE29479BA800BF16C2 /* MainViewController.swift in Sources */,
 				6C738AF02947B32800BF16C2 /* ContactsModel.swift in Sources */,
-				6C5222C829566D9700C4251E /* MessageCell.swift in Sources */,
+				6C5222C829566D9700C4251E /* ChatCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +374,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C738AD12947944D00BF16C2 /* Build configuration list for PBXProject "MessagerApp" */ = {
+		6C738AD12947944D00BF16C2 /* Build configuration list for PBXProject "MessangerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C738AE82947945600BF16C2 /* Debug */,
@@ -383,7 +383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C738AEA2947945600BF16C2 /* Build configuration list for PBXNativeTarget "MessagerApp" */ = {
+		6C738AEA2947945600BF16C2 /* Build configuration list for PBXNativeTarget "MessangerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C738AEB2947945600BF16C2 /* Debug */,

@@ -15,7 +15,7 @@ class MainViewController: UITableViewController, UIApplicationDelegate {
         super.viewDidLoad()
         tableView.backgroundColor = .white
         tableView.rowHeight = 100
-        tableView.register(ContactCell.self, forCellReuseIdentifier: Constants.cellID.rawValue)
+        tableView.register(ContactCell.self, forCellReuseIdentifier: Constants.contactCellID.rawValue)
 
         setupNavigationBar()
         fetchContacts(with: Links.url2.rawValue)
@@ -47,7 +47,7 @@ extension MainViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.contactCellID.rawValue, for: indexPath)
        
         guard let cell = cell as? ContactCell else { return UITableViewCell() }
         
@@ -60,7 +60,8 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let chatVC = ChatViewController()
-        chatVC.title = "Chats"
+        chatVC.title = contacts?.results[indexPath.row].fullName
+        chatVC.contacts = contacts
         navigationController?.pushViewController(chatVC, animated: true)
     }
 }

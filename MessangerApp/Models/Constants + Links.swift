@@ -9,7 +9,8 @@ import Foundation
 
 enum Constants: String {
     case defaultImage = "defaulImage",
-         cellID = "contact"
+         contactCellID = "contact",
+         chatCellID = "chat"
 }
 
 enum Links: String {

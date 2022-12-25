@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class ChatCell: UITableViewCell {
 
     private let rightImageView = UIImageView()
     private let leftImageView = UIImageView()
@@ -28,10 +28,22 @@ class MessageCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(with contact: Contact) {
+        rightImageView.image = UIImage(named: Constants.defaultImage.rawValue)
+        NetworkManager.shared.fetchImage(from: contact.picture.thumbnail) { result in
+            switch result {
+            case .success(let imageData):
+                self.leftImageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - Private Methods
-extension MessageCell {
+extension ChatCell {
     private func setupSubview(_ subviews: UIView...) {
            subviews.forEach { subview in
                contentView.addSubview(subview)
@@ -69,9 +81,9 @@ extension MessageCell {
         
         NSLayoutConstraint.activate([
             messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            messageLabel.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: 20),
+            messageLabel.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: 15),
             messageLabel.heightAnchor.constraint(equalToConstant: 80),
-            messageLabel.trailingAnchor.constraint(equalTo: rightImageView.leadingAnchor, constant: 20)
+            messageLabel.trailingAnchor.constraint(equalTo: rightImageView.leadingAnchor, constant: 15)
         ])
         
         NSLayoutConstraint.activate([
